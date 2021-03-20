@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  req.send("it is working!");
+  res.send("it is working!");
 });
 app.post("/signin", handleSignin(db, bcrypt));
 
