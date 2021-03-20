@@ -6,13 +6,16 @@ import handleRegister from "./controllers/register.js";
 import handleSignin from "./controllers/signin.js";
 import handleProfileGet from "./controllers/profile.js";
 import { handleImage, handleApiCall } from "./controllers/image.js";
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const db = knex({
   client: "pg",
   connection: {
     host: "127.0.0.1",
     user: "acm",
-    password: "gandhi_149",
+    password: process.env.PASS_DB,
     database: "smart-brain",
   },
 });

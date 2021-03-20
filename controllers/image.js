@@ -1,7 +1,10 @@
 import Clarifai from "clarifai";
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const app = new Clarifai.App({
-  apiKey: "ef05de48ac8b4e83b7a35c5446e3791a",
+  apiKey: process.env.API_KEY_CLARIFAI,
 });
 
 export const handleApiCall = (req, res) => {
@@ -11,7 +14,7 @@ export const handleApiCall = (req, res) => {
       res.json(data);
     })
     .catch((err) => res.status(400).json("unable to work with API"));
-  };
+};
 
 export const handleImage = (req, res, db) => {
   const { id } = req.body;
